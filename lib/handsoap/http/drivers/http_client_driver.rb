@@ -11,6 +11,7 @@ module Handsoap
 
         def send_http_request(request)
           http_client = HTTPClient.new
+          http_client.ssl_config.ssl_version = :TLSv1
           # Set credentials. The driver will negotiate the actual scheme
           if request.username && request.password
             domain = request.url.match(/^(http(s?):\/\/[^\/]+\/)/)[1]
